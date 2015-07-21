@@ -17,8 +17,8 @@ Module.expectedDataFileDownloads++;
     } else {
       throw 'using preloaded data can only be done on a web page or in a web worker';
     }
-    var PACKAGE_NAME = '2DCustomPhysics.data';
-    var REMOTE_PACKAGE_BASE = '2DCustomPhysics.data';
+    var PACKAGE_NAME = '2dcustomphysics.data';
+    var REMOTE_PACKAGE_BASE = '2dcustomphysics.data';
     if (typeof Module['locateFilePackage'] === 'function' && !Module['locateFile']) {
       Module['locateFile'] = Module['locateFilePackage'];
       Module.printErr('warning: you defined Module.locateFilePackage, that has been renamed to Module.locateFile (using your locateFilePackage for now)');
@@ -27,7 +27,7 @@ Module.expectedDataFileDownloads++;
                               Module['locateFile'](REMOTE_PACKAGE_BASE) :
                               ((Module['filePackagePrefixURL'] || '') + REMOTE_PACKAGE_BASE);
     var REMOTE_PACKAGE_SIZE = 2130131;
-    var PACKAGE_UUID = '7ff21f73-896c-4312-8d0b-de44d854256c';
+    var PACKAGE_UUID = '7d16bbca-c834-4046-bcf5-675cb0ba9745';
   
     function fetchRemotePackage(packageName, packageSize, callback, errback) {
       var xhr = new XMLHttpRequest();
@@ -144,10 +144,10 @@ Module['FS_createPath']('/', 'Resources', true, true);
           DataRequest.prototype.requests["/sharedassets0.assets"].onload();
           DataRequest.prototype.requests["/Resources/unity_default_resources"].onload();
           DataRequest.prototype.requests["/Resources/unity_builtin_extra"].onload();
-          Module['removeRunDependency']('datafile_2DCustomPhysics.data');
+          Module['removeRunDependency']('datafile_2dcustomphysics.data');
 
     };
-    Module['addRunDependency']('datafile_2DCustomPhysics.data');
+    Module['addRunDependency']('datafile_2dcustomphysics.data');
   
     if (!Module.preloadResults) Module.preloadResults = {};
   
