@@ -17,8 +17,8 @@ Module.expectedDataFileDownloads++;
     } else {
       throw 'using preloaded data can only be done on a web page or in a web worker';
     }
-    var PACKAGE_NAME = '2dcustomphysics.data';
-    var REMOTE_PACKAGE_BASE = '2dcustomphysics.data';
+    var PACKAGE_NAME = '2d.data';
+    var REMOTE_PACKAGE_BASE = '2d.data';
     if (typeof Module['locateFilePackage'] === 'function' && !Module['locateFile']) {
       Module['locateFile'] = Module['locateFilePackage'];
       Module.printErr('warning: you defined Module.locateFilePackage, that has been renamed to Module.locateFile (using your locateFilePackage for now)');
@@ -26,8 +26,8 @@ Module.expectedDataFileDownloads++;
     var REMOTE_PACKAGE_NAME = typeof Module['locateFile'] === 'function' ?
                               Module['locateFile'](REMOTE_PACKAGE_BASE) :
                               ((Module['filePackagePrefixURL'] || '') + REMOTE_PACKAGE_BASE);
-    var REMOTE_PACKAGE_SIZE = 2130131;
-    var PACKAGE_UUID = '7d16bbca-c834-4046-bcf5-675cb0ba9745';
+    var REMOTE_PACKAGE_SIZE = 3271699;
+    var PACKAGE_UUID = 'e4497d74-a651-4594-a5f0-22dc0e9cdd0c';
   
     function fetchRemotePackage(packageName, packageSize, callback, errback) {
       var xhr = new XMLHttpRequest();
@@ -89,6 +89,8 @@ Module.expectedDataFileDownloads++;
 function assert(check, msg) {
   if (!check) throw msg + new Error().stack;
 }
+Module['FS_createPath']('/', 'Il2CppData', true, true);
+Module['FS_createPath']('/Il2CppData', 'Metadata', true, true);
 Module['FS_createPath']('/', 'Resources', true, true);
 
     function DataRequest(start, end, crunched, audio) {
@@ -125,11 +127,13 @@ Module['FS_createPath']('/', 'Resources', true, true);
         this.requests[this.name] = null;
       },
     };
-      new DataRequest(0, 24556, 0, 0).open('GET', '/mainData');
-    new DataRequest(24556, 24715, 0, 0).open('GET', '/methods_pointedto_by_uievents.xml');
-    new DataRequest(24715, 54619, 0, 0).open('GET', '/sharedassets0.assets');
-    new DataRequest(54619, 1629655, 0, 0).open('GET', '/Resources/unity_default_resources');
-    new DataRequest(1629655, 2130131, 0, 0).open('GET', '/Resources/unity_builtin_extra');
+      new DataRequest(0, 25724, 0, 0).open('GET', '/mainData');
+    new DataRequest(25724, 25883, 0, 0).open('GET', '/methods_pointedto_by_uievents.xml');
+    new DataRequest(25883, 30391, 0, 0).open('GET', '/resources.assets');
+    new DataRequest(30391, 69159, 0, 0).open('GET', '/sharedassets0.assets');
+    new DataRequest(69159, 1194011, 0, 0).open('GET', '/Il2CppData/Metadata/global-metadata.dat');
+    new DataRequest(1194011, 2769047, 0, 0).open('GET', '/Resources/unity_default_resources');
+    new DataRequest(2769047, 3271699, 0, 0).open('GET', '/Resources/unity_builtin_extra');
 
     function processPackageData(arrayBuffer) {
       Module.finishedDataFileDownloads++;
@@ -141,13 +145,15 @@ Module['FS_createPath']('/', 'Resources', true, true);
       DataRequest.prototype.byteArray = byteArray;
           DataRequest.prototype.requests["/mainData"].onload();
           DataRequest.prototype.requests["/methods_pointedto_by_uievents.xml"].onload();
+          DataRequest.prototype.requests["/resources.assets"].onload();
           DataRequest.prototype.requests["/sharedassets0.assets"].onload();
+          DataRequest.prototype.requests["/Il2CppData/Metadata/global-metadata.dat"].onload();
           DataRequest.prototype.requests["/Resources/unity_default_resources"].onload();
           DataRequest.prototype.requests["/Resources/unity_builtin_extra"].onload();
-          Module['removeRunDependency']('datafile_2dcustomphysics.data');
+          Module['removeRunDependency']('datafile_2d.data');
 
     };
-    Module['addRunDependency']('datafile_2dcustomphysics.data');
+    Module['addRunDependency']('datafile_2d.data');
   
     if (!Module.preloadResults) Module.preloadResults = {};
   
