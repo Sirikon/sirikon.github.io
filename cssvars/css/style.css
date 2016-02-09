@@ -1,0 +1,66 @@
+body {
+    background-color: var(--back-color);
+    font-family: var(--font-family);
+    font-size: var(--font-size);
+}
+
+.container-main {
+    display: block;
+    margin: auto;
+    max-width: var(--container-width);
+}
+
+.row {
+    background-color: white;
+    padding: .1px 1em;
+    margin-bottom: 1em;
+}
+
+a {
+    text-decoration: none;
+    color: var(--main-color);
+}
+
+a h3:hover {
+    color: white;
+    background-color: var(--main-color);
+}
+
+.row-header {
+    background-color: var(--main-color);
+    color: white;
+}
+
+.animations-container {
+    padding: 1em;
+    margin: 1em 0;
+    background-color: rgba(0,0,0,0.1);
+}
+
+.animations-container:hover {
+    --box-scale: var(--box-scale-active);
+    --box-color: var(--box-color-active);
+    --box-position-x: var(--box-position-x-active);
+}
+
+.animated-box {
+    transition: all 0.35s ease;
+    background-color: var(--box-color);
+    transform: translate(var(--box-position-x), 0%) scale(var(--box-scale));
+    width: var(--box-size);
+    height: var(--box-size);
+}
+
+#inputs-container, #inputs-result {
+    background-color: whitesmoke;
+    padding: 15px;
+    margin: 0;
+    width: 50%;
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#inputs-result {
+    background-color: lightgrey;
+}
